@@ -1,10 +1,16 @@
 import React, { Component } from "react";
 import { SaveProduct } from "../services/MyData";
 import withRoutes from "./withRoutes";
-class Addproduct extends Component {
+class Addproducts extends Component {
   constructor(props) {
     super(props);
-    this.state = { name: "", city: "" };
+    this.state = {
+      name: "",
+      price: "",
+      quantity: "",
+      description: "",
+      image: "",
+    };
   }
   handler = (e) => {
     let { name, value } = e.target;
@@ -45,7 +51,7 @@ class Addproduct extends Component {
             <label>Price</label>
             <input
               type="number"
-              pattern="/^[1-9]+$/"
+              // pattern="/^[1-9]+$/"
               required
               name="price"
               className="form-control"
@@ -56,7 +62,7 @@ class Addproduct extends Component {
             <label>Quantity</label>
             <input
               type="number"
-              pattern="/^[0-9]+$/"
+              // pattern="/^[0-9]+$/"
               name="quantity"
               required
               className="form-control"
@@ -94,4 +100,4 @@ class Addproduct extends Component {
     );
   }
 }
-export default withRoutes(Addproduct);
+export default withRoutes(Addproducts);
