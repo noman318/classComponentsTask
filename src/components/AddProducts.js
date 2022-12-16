@@ -1,5 +1,9 @@
 import React, { Component } from "react";
 import { SaveProduct } from "../services/MyData";
+import { toast } from "react-toastify";
+// eslint-disable-next-line
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import withRoutes from "./withRoutes";
 class Addproducts extends Component {
   constructor(props) {
@@ -12,6 +16,10 @@ class Addproducts extends Component {
       image: "",
     };
   }
+  showSuccess = () => {
+    // console.log("llllllllllllllllllll");
+    toast.success("Product added");
+  };
   handler = (e) => {
     let { name, value } = e.target;
     this.setState({ [name]: value });
@@ -90,11 +98,14 @@ class Addproducts extends Component {
             />
           </div>
           <br />
-          <input
+          <button
             type="submit"
             value="Add Products"
             className="btn btn-success"
-          />
+            onClick={this.showSuccess}
+          >
+            Add Products
+          </button>
         </form>
       </div>
     );

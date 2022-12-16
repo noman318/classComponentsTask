@@ -1,5 +1,10 @@
 import React, { Component } from "react";
 import { getProductById, updateProduct } from "../services/MyData";
+// import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+// eslint-disable-next-line
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import withRoutes from "./withRoutes";
 class Editproducts extends Component {
   constructor(props) {
@@ -14,6 +19,11 @@ class Editproducts extends Component {
     this.handleSubmit1 = this.handleSubmit1.bind(this);
     this.handler = this.handler.bind(this);
   }
+
+  showSuccess = () => {
+    // console.log("llllllllllllllllllll");
+    toast.success("Product Edited");
+  };
 
   handleSubmit1 = (e) => {
     e.preventDefault();
@@ -48,12 +58,6 @@ class Editproducts extends Component {
         image: res.data.image,
       });
     });
-    // .then((res) => {
-    //   if (res.data) {
-    //     this.props.navigate("/getproducts");
-    //   }
-    // })
-    // .catch((err) => console.log(err));
   }
   render() {
     return (
@@ -118,7 +122,11 @@ class Editproducts extends Component {
             />
           </div>
           <br />
-          <button type="submit" className="btn btn-success">
+          <button
+            type="submit"
+            onClick={this.showSuccess}
+            className="btn btn-success"
+          >
             Submit
           </button>
         </form>
