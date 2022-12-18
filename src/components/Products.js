@@ -8,7 +8,6 @@ import { getAllProduct, deleteProduct } from "../services/MyData";
 toast.configure({
   autoClose: 2000,
   draggable: true,
-  pauseOnHover: false,
   theme: "dark",
 });
 
@@ -43,7 +42,7 @@ export default class Products extends Component {
         <h2> Products</h2>
         <div className="row">
           {this.state.proData.map((pro) => (
-            <div className="col-sm-4" key={pro._id}>
+            <div className="col-sm-4 m-4" key={pro._id}>
               <div
                 className="card my-3"
                 style={{ width: "250px", height: "320px" }}
@@ -63,14 +62,14 @@ export default class Products extends Component {
                     className="btn btn-primary"
                   >
                     {" "}
-                    Edit
+                    <i className="bi bi-pencil"></i> Edit
                   </Link>
                   <button
                     className="btn btn-danger mx-3"
                     onClick={() => this.delPro(pro._id)}
                   >
                     {" "}
-                    Delete
+                    <i className="bi bi-trash"></i> Delete
                   </button>
                 </div>
               </div>

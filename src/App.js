@@ -4,7 +4,6 @@ import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.min.css";
-// import { toast, ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 // eslint-disable-next-line
 import { ToastContainer } from "react-toastify";
@@ -14,8 +13,9 @@ import AddProducts from "./components/AddProducts";
 import HomePage from "./components/HomePage";
 
 toast.configure({
-  autoClose: 10000,
+  autoClose: 2000,
   draggable: true,
+  theme: "dark",
 });
 
 function App() {

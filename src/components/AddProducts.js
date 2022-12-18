@@ -7,9 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 import withRoutes from "./withRoutes";
 
 toast.configure({
-  autoClose: 5000,
+  autoClose: 2000,
   draggable: true,
-  pauseOnHover: false,
   theme: "dark",
 });
 
@@ -50,57 +49,94 @@ class Addproducts extends Component {
       <div>
         <h4> Add Data</h4>
         <form className="w-50" onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label>Product Name</label>
-            <input
-              type="text"
-              name="name"
-              required
-              className="form-control"
-              onChange={this.handler}
-            />
+          <div className="form-group mt-3">
+            <h5>Product Name</h5>
+            <div className="d-flex">
+              <input
+                type="text"
+                name="name"
+                required
+                minLength={1}
+                maxLength={10}
+                placeholder="Enter Product Name"
+                className="form-control"
+                onChange={this.handler}
+              />{" "}
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>
-          <div className="form-group w-25">
-            <label>Price</label>
-            <input
-              type="number"
-              // pattern="/^[1-9]+$/"
-              required
-              name="price"
-              className="form-control"
-              onChange={this.handler}
-            />
+          <div className="form-group mt-3 w-25">
+            <h5>Price</h5>
+            <div className="d-flex">
+              <input
+                type="number"
+                // pattern="/^[1-9]+$/"
+                required
+                name="price"
+                minLength={1}
+                maxLength={5}
+                className="form-control"
+                onChange={this.handler}
+                placeholder="Enter Price"
+              />
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>
-          <div className="form-group w-25">
-            <label>Quantity</label>
-            <input
-              type="number"
-              // pattern="/^[0-9]+$/"
-              name="quantity"
-              required
-              className="form-control"
-              onChange={this.handler}
-            />
+          <div className="form-group mt-3 w-25">
+            <h5>Quantity</h5>
+            <div className="d-flex">
+              <input
+                type="number"
+                // pattern="/^[0-9]+$/"
+                name="quantity"
+                required
+                minLength={1}
+                maxLength={5}
+                className="form-control"
+                placeholder="Enter Quantity"
+                onChange={this.handler}
+              />
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>
-          <div className="form-group">
-            <label>Description</label>
-            <input
-              type="text"
-              name="description"
-              className="form-control"
-              required
-              onChange={this.handler}
-            />
+          <div className="form-group mt-3">
+            <h5>Description</h5>
+            <div className="d-flex">
+              {/* <input
+                type="text"
+                name="description"
+                placeholder="Enter Description"
+                className="form-control"
+                required
+                onChange={this.handler}
+              /> */}
+              <textarea
+                className="form-control"
+                name="description"
+                placeholder="Enter Description"
+                onChange={this.handler}
+                minLength={4}
+                maxLength={30}
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea>
+
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>
-          <div className="form-group">
-            <label>Image URL</label>
-            <input
-              type="text"
-              name="image"
-              className="form-control"
-              onChange={this.handler}
-              required
-            />
+          <div className="form-group mt-3">
+            <h5>Image URL</h5>
+            <div className="d-flex">
+              <input
+                type="text"
+                name="image"
+                placeholder="Enter Image URL"
+                className="form-control"
+                onChange={this.handler}
+                required
+              />
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>
           <br />
           <button
@@ -109,7 +145,7 @@ class Addproducts extends Component {
             className="btn btn-success"
             // onClick={this.showSuccess}
           >
-            Add Products
+            <i className="bi bi-plus-square"></i> Add Products
           </button>
         </form>
       </div>

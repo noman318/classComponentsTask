@@ -8,7 +8,6 @@ import withRoutes from "./withRoutes";
 toast.configure({
   autoClose: 5000,
   draggable: true,
-  pauseOnHover: false,
   theme: "dark",
 });
 class Editproducts extends Component {
@@ -53,7 +52,7 @@ class Editproducts extends Component {
   };
   componentDidMount() {
     getProductById(this.props.params.id).then((res) => {
-      console.log(this.props.params.id);
+      // console.log(this.props.params.id);
       this.setState({
         name: res.data.name,
         price: res.data.price,
@@ -68,62 +67,95 @@ class Editproducts extends Component {
       <div>
         <h4> Edit Data</h4>
         <form className="w-50" onSubmit={this.handleSubmit1}>
-          <div className="form-group">
-            <label>Product Name</label>
-            <input
-              type="text"
-              name="name"
-              className="form-control"
-              required
-              value={this.state.name || ""}
-              onChange={this.handler}
-            />
+          <div className="form-group mt-3">
+            <h5>Product Name</h5>
+            <div className="d-flex">
+              <input
+                type="text"
+                name="name"
+                minLength={1}
+                maxLength={10}
+                className="form-control"
+                required
+                value={this.state.name || ""}
+                onChange={this.handler}
+              />
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>
-          <div className="form-group w-25">
-            <label>Price</label>
-            <input
-              type="text"
-              // pattern="/^[1-9]+$/"
-              name="price"
-              className="form-control"
-              value={this.state.price}
-              required
-              onChange={this.handler}
-            />
+          <div className="form-group w-25 mt-3">
+            <h5>Price</h5>
+            <div className="d-flex">
+              <input
+                type="number"
+                // pattern="/^[1-9]+$/"
+                name="price"
+                minLength={1}
+                maxLength={5}
+                className="form-control"
+                value={this.state.price}
+                required
+                onChange={this.handler}
+              />
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>
-          <div className="form-group w-25">
-            <label>Quantity</label>
-            <input
-              type="number"
-              name="quantity"
-              pattern="/^[0-9]+$/"
-              className="form-control"
-              value={this.state.quantity}
-              required
-              onChange={this.handler}
-            />
+          <div className="form-group w-25 mt-3">
+            <h5>Quantity</h5>
+            <div className="d-flex">
+              <input
+                type="number"
+                name="quantity"
+                minLength={1}
+                maxLength={5}
+                pattern="/^[0-9]+$/"
+                className="form-control"
+                value={this.state.quantity}
+                required
+                onChange={this.handler}
+              />
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>
-          <div className="form-group">
-            <label>Description</label>
-            <input
-              type="text"
-              name="description"
-              className="form-control"
-              value={this.state.description}
-              required
-              onChange={this.handler}
-            />
+          <div className="form-group mt-3">
+            <h5>Description</h5>
+            <div className="d-flex">
+              {/* <input
+                type="text"
+                name="description"
+                className="form-control"
+                value={this.state.description}
+                required
+                onChange={this.handler}
+              /> */}
+              <textarea
+                className="form-control"
+                name="description"
+                value={this.state.description}
+                onChange={this.handler}
+                minLength={4}
+                maxLength={30}
+                required
+                id="exampleFormControlTextarea1"
+                rows="3"
+              ></textarea>
+
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>{" "}
-          <div className="form-group">
-            <label>Image URL</label>
-            <input
-              type="text"
-              name="image"
-              className="form-control"
-              value={this.state.image}
-              required
-              onChange={this.handler}
-            />
+          <div className="form-group mt-3">
+            <h5>Image URL</h5>
+            <div className="d-flex">
+              <input
+                type="text"
+                name="image"
+                className="form-control"
+                value={this.state.image}
+                required
+                onChange={this.handler}
+              />
+              <i className="bi bi-asterisk icon"></i>
+            </div>
           </div>
           <br />
           <button type="submit" className="btn btn-success">
