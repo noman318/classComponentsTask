@@ -5,6 +5,14 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import withRoutes from "./withRoutes";
+
+toast.configure({
+  autoClose: 5000,
+  draggable: true,
+  pauseOnHover: false,
+  theme: "dark",
+});
+
 class Addproducts extends Component {
   constructor(props) {
     super(props);
@@ -16,10 +24,6 @@ class Addproducts extends Component {
       image: "",
     };
   }
-  showSuccess = () => {
-    // console.log("llllllllllllllllllll");
-    toast.success("Product added");
-  };
   handler = (e) => {
     let { name, value } = e.target;
     this.setState({ [name]: value });
@@ -35,6 +39,7 @@ class Addproducts extends Component {
     })
       .then((res) => {
         if (res.data) {
+          toast.success("Product added");
           this.props.navigate("/getproducts");
         }
       })
@@ -55,7 +60,7 @@ class Addproducts extends Component {
               onChange={this.handler}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group w-25">
             <label>Price</label>
             <input
               type="number"
@@ -66,7 +71,7 @@ class Addproducts extends Component {
               onChange={this.handler}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group w-25">
             <label>Quantity</label>
             <input
               type="number"
@@ -102,7 +107,7 @@ class Addproducts extends Component {
             type="submit"
             value="Add Products"
             className="btn btn-success"
-            onClick={this.showSuccess}
+            // onClick={this.showSuccess}
           >
             Add Products
           </button>

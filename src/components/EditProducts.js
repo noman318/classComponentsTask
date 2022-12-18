@@ -1,11 +1,16 @@
 import React, { Component } from "react";
 import { getProductById, updateProduct } from "../services/MyData";
-// import { toast, ToastContainer } from "react-toastify";
 import { toast } from "react-toastify";
 // eslint-disable-next-line
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import withRoutes from "./withRoutes";
+toast.configure({
+  autoClose: 5000,
+  draggable: true,
+  pauseOnHover: false,
+  theme: "dark",
+});
 class Editproducts extends Component {
   constructor(props) {
     super(props);
@@ -20,11 +25,6 @@ class Editproducts extends Component {
     this.handler = this.handler.bind(this);
   }
 
-  showSuccess = () => {
-    // console.log("llllllllllllllllllll");
-    toast.success("Product Edited");
-  };
-
   handleSubmit1 = (e) => {
     e.preventDefault();
     updateProduct(this.props.params.id, this.state)
@@ -37,10 +37,14 @@ class Editproducts extends Component {
           image: res.data.image,
         });
         if (res.data) {
+          toast.success("Product Edited");
           this.props.navigate("/getproducts");
         }
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        toast.error("Error occurred");
+        console.log(err);
+      });
   };
   handler = (e) => {
     e.preventDefault();
@@ -75,7 +79,7 @@ class Editproducts extends Component {
               onChange={this.handler}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group w-25">
             <label>Price</label>
             <input
               type="text"
@@ -87,7 +91,7 @@ class Editproducts extends Component {
               onChange={this.handler}
             />
           </div>
-          <div className="form-group">
+          <div className="form-group w-25">
             <label>Quantity</label>
             <input
               type="number"
@@ -122,11 +126,7 @@ class Editproducts extends Component {
             />
           </div>
           <br />
-          <button
-            type="submit"
-            onClick={this.showSuccess}
-            className="btn btn-success"
-          >
+          <button type="submit" className="btn btn-success">
             Submit
           </button>
         </form>
