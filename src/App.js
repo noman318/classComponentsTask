@@ -11,6 +11,7 @@ import "react-toastify/dist/ReactToastify.css";
 import EditProducts from "./components/EditProducts";
 import AddProducts from "./components/AddProducts";
 import HomePage from "./components/HomePage";
+import ViewProduct from "./components/ViewProduct";
 
 toast.configure({
   autoClose: 2000,
@@ -28,6 +29,7 @@ function App() {
           <Route path="/getproducts" element={<Products />} />
           <Route path="/addproduct" element={<AddProducts />} />
           <Route path="/editproduct/:id" element={<EditProducts />} />
+          <Route path="/getproductbyid/:id" element={<ViewProduct />} />
         </Routes>
       </section>
     </Router>

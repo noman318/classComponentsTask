@@ -42,7 +42,7 @@ export default class Products extends Component {
         <h2> Products</h2>
         <div className="row">
           {this.state.proData.map((pro) => (
-            <div className="col-sm-4 m-4" key={pro._id}>
+            <div className="col-sm-3" key={pro._id}>
               <div
                 className="card my-3"
                 style={{ width: "250px", height: "320px" }}
@@ -57,20 +57,29 @@ export default class Products extends Component {
                 <div className="card-body">
                   <h5 className="card-title">{pro.name}</h5>
                   <p className="card-text">Rs. {pro.price}</p>
-                  <Link
-                    to={`/editproduct/${pro._id}`}
-                    className="btn btn-primary"
-                  >
-                    {" "}
-                    <i className="bi bi-pencil"></i> Edit
-                  </Link>
-                  <button
-                    className="btn btn-danger mx-3"
-                    onClick={() => this.delPro(pro._id)}
-                  >
-                    {" "}
-                    <i className="bi bi-trash"></i> Delete
-                  </button>
+                  <div className="d-flex">
+                    <Link
+                      to={`/editproduct/${pro._id}`}
+                      className="btn btn-primary m-2"
+                    >
+                      {" "}
+                      <i className="bi bi-pencil"></i> Edit
+                    </Link>
+                    <Link
+                      to={`/getproductbyid/${pro._id}`}
+                      className="btn btn-warning m-2"
+                    >
+                      {" "}
+                      <i className="bi bi-eye"></i> View
+                    </Link>
+                    <button
+                      className="btn btn-danger m-2"
+                      onClick={() => this.delPro(pro._id)}
+                    >
+                      {" "}
+                      <i className="bi bi-trash"></i> Delete
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

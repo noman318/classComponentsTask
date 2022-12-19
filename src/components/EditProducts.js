@@ -69,7 +69,7 @@ class Editproducts extends Component {
         <form className="w-50" onSubmit={this.handleSubmit1}>
           <div className="form-group mt-3">
             <h5 className="d-flex">
-              Product Name <i className="bi bi-asterisk icon"></i>
+              Name <i className="bi bi-asterisk icon"></i>
             </h5>
             <div className="d-flex">
               <input

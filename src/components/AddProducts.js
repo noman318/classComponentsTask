@@ -51,7 +51,7 @@ class Addproducts extends Component {
         <form className="w-50" onSubmit={this.handleSubmit}>
           <div className="form-group mt-3">
             <h5 className="d-flex">
-              Product Name
+              Name
               <i className="bi bi-asterisk icon"></i>
             </h5>
             <div className="d-flex">
