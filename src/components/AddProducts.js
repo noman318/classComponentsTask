@@ -50,23 +50,29 @@ class Addproducts extends Component {
         <h4> Add Data</h4>
         <form className="w-50" onSubmit={this.handleSubmit}>
           <div className="form-group mt-3">
-            <h5>Product Name</h5>
+            <h5 className="d-flex">
+              Product Name
+              <i className="bi bi-asterisk icon"></i>
+            </h5>
             <div className="d-flex">
               <input
                 type="text"
                 name="name"
                 required
                 minLength={1}
-                maxLength={10}
+                maxLength={30}
                 placeholder="Enter Product Name"
                 className="form-control"
                 onChange={this.handler}
               />{" "}
-              <i className="bi bi-asterisk icon"></i>
             </div>
           </div>
           <div className="form-group mt-3 w-25">
-            <h5>Price</h5>
+            <h5 className="d-flex">
+              Price
+              <i className="bi bi-asterisk icon"></i>
+            </h5>
+
             <div className="d-flex">
               <input
                 type="number"
@@ -79,11 +85,13 @@ class Addproducts extends Component {
                 onChange={this.handler}
                 placeholder="Enter Price"
               />
-              <i className="bi bi-asterisk icon"></i>
             </div>
           </div>
           <div className="form-group mt-3 w-25">
-            <h5>Quantity</h5>
+            <h5 className="d-flex">
+              Quantity
+              <i className="bi bi-asterisk icon"></i>
+            </h5>
             <div className="d-flex">
               <input
                 type="number"
@@ -96,11 +104,13 @@ class Addproducts extends Component {
                 placeholder="Enter Quantity"
                 onChange={this.handler}
               />
-              <i className="bi bi-asterisk icon"></i>
             </div>
           </div>
           <div className="form-group mt-3">
-            <h5>Description</h5>
+            <h5 className="d-flex">
+              Description
+              <i className="bi bi-asterisk icon"></i>
+            </h5>
             <div className="d-flex">
               {/* <input
                 type="text"
@@ -120,12 +130,13 @@ class Addproducts extends Component {
                 id="exampleFormControlTextarea1"
                 rows="3"
               ></textarea>
-
-              <i className="bi bi-asterisk icon"></i>
             </div>
           </div>
           <div className="form-group mt-3">
-            <h5>Image URL</h5>
+            <h5 className="d-flex">
+              Image URL
+              <i className="bi bi-asterisk icon"></i>
+            </h5>
             <div className="d-flex">
               <input
                 type="text"
@@ -135,7 +146,6 @@ class Addproducts extends Component {
                 onChange={this.handler}
                 required
               />
-              <i className="bi bi-asterisk icon"></i>
             </div>
           </div>
           <br />

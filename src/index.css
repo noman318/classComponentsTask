@@ -13,8 +13,6 @@ code {
 }
 .icon {
   color: red;
-  padding-top: 0px;
-  padding-left: 5px;
   size: 0.2px;
-  margin-left: -25px;
+  font-size: 8px;
 }
